@@ -1,0 +1,45 @@
+<section id="hero" class="d-flex align-items-center">
+    <div class="container">
+      <div class="row" style="padding-bottom:13%;">
+        <div class="col-lg-12 col-sm-18 mb-12 mb-lg-0">
+            <div class="card-body" style="box-shadow: 4px 4px 8px 4px rgba(16, 56, 189, 0.2);">
+                <div class="card p-2">
+                    <div class="service-block p-4 color-bg text-center">
+                        <div class="service-icon text-center">
+                          <i class=""></i>
+                              </div>
+                                <h1>Pengubah Suara Menjadi Teks</h1>
+                                <i class="fa-solid fa-cloud-arrow-up fa-2xl" style="padding-bottom:3%"></i>
+                                <form method="post" action ="{{url_for('upload')}}" enctype="multipart/form-data" style="padding-left:6%">
+                                <input type="file" name="file"  accept="audio/*"/>
+                                <br>
+                                <br>
+                                <h6 class="mb-4" style="font-family: system-ui; font-weight: 300; font-size:20px; padding-right:60px;">Transkripsikan audio menjadi teks secara otomatis dan gratis di browser Anda.</h6>
+                                <i><h6 class="mb-4" style="font-family: system-ui; font-weight: 300; font-size:14px; padding-right:60px;">*Hanya mendukung format .WAV, jika belum untuk mengkonversi ke WAV silahkan klik <a href="https://cloudconvert.com/">disini</a></h6></i>
+                                <div class="col" style="padding-right:10%;">
+                            <button type="submit" id="submitButton"  class="btn btn-outline-primary">TRANSCRIPTS</button>
+                          </div> 
+                        </form>
+                      </div>
+                </div>
+            </div>
+          {% if segment_info %}
+          <h2 style="text-align:center; padding-top:3%; padding-bottom:2%;">Hasil Rekaman Audio Ke Teks</h2>
+            {% for segment in segment_info %}
+              <div class="card mb-2 mt-2">
+                <div class="card-body">
+                  <p><strong>({{ segment[3]  }} - {{ segment[4] }})</strong> &nbsp;<span style="font-size: 14px;">{{ segment[2] }}</span></p>
+                </div>
+              </div>
+              {% endfor %}
+              <form action="{{ url_for('download_transcript') }}" method="post">
+                <input id="x" style="hero-content" type="hidden" name="content" value="{% for segment in segment_info %}{{ segment[2] }}. {% endfor %}">
+                <trix-editor input="x" onchange="saveFormData()"></trix-editor>
+                <button type="submit" class="btn btn-primary">Download Transcript</button>
+              </form>      
+          {% else %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>

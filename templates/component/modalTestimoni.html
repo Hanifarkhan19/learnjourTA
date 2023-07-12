@@ -1,0 +1,36 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Testimoni</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="/add-testimoni" method="post">
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Nama</label>
+              <input type="text" name="nama" class="form-control" id="exampleFormControlInput1" placeholder="Nama" required>
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label form-select-sm">Jobdesk</label>
+              <select name="jobdesk" class="form-select" aria-label="Default select example" required>
+                <option selected>--- Pilih Jobdesk ---</option>
+                <option value="User">User</option>
+                <option value="CEO">CEO</option>
+                <option value="Developer">Developer</option>
+                <option value="Wartawan">Wartawan</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label">Testimoni</label>
+              <input id="testimoni" type="hidden" name="testimoni">
+                  <trix-editor input="testimoni"></trix-editor>
+            </div>
+            <button type="submit" class="btn btn-primary">Simpan</button>
+          </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>

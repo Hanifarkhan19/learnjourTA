@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include 'component/head.html' %}
+
+<body>
+
+  {% include 'component/navbarArtikel.html' %}
+
+<main id="main">
+  <!-- ======= Counts Section ======= -->
+  <section id="counts" class="counts section-bg">
+    <div class="container">
+      <div class="row" style="padding:6%;">
+        <div class="col">
+          <div class="artikel">
+            <h2>{{ result[1] }}</h2>
+            <p><i class="fa-regular fa-calendar-days"></i>&nbsp;{{result[3]}}</p>
+            <img src="{{ (url_for('static', filename='uploads/images/' + result[2])) }}" alt="gambar" width="100%" height="450" style="display: cover;">
+            <article style="padding-top:2%; text-align:justify;">
+              {{ result[6]|safe }}
+            </article>
+          </div>
+        </div>
+      </div>
+      </style>
+    </div>
+  </section><!-- End Counts Section -->
+  </main><!-- End #main -->
+  {% include 'component/footer.html' %}
+</body>
+</html>

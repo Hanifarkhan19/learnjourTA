@@ -1,0 +1,29 @@
+<form action="/artikel-edit/{{artikel.id_artikel}}" method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Judul</label>
+        <input type="text" value="{{artikel.judul}}" class="form-control" name="judul" id="exampleFormControlInput1" placeholder="Judul Artikel" required>
+    </div>
+    <div class="mb-3">
+        <label for="formFile" class="form-label">Image</label>
+        <input class="form-control" value="{{artikel.image}}" type="file" name="image" id="formFile">
+        <img src="{{ (url_for('static', filename='uploads/images/' + artikel.image)) }}" width="10%" style="margin-top:10px;">
+      </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Tanggal</label>
+        <input type="date" class="form-control"  value="{{artikel.tanggal}}" name="tanggal" id="exampleFormControlInput1" placeholder="Tanggal">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Status</label>
+        <select class="form-select" name="status"  aria-label="Default select example">
+            <option value="{{artikel.status}}">{{artikel.status}}</option>
+            <option value="Private">Private</option>
+            <option value="Public">Public</option>
+          </select>
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Artikel</label>
+        <input id="artikel" type="hidden" name="artikel" value="{{artikel.artikel}}">
+        <trix-editor input="artikel"></trix-editor>
+    </div>
+    <button type="submit" class="btn btn-outline-primary btn-lg">Update</button>
+</form>

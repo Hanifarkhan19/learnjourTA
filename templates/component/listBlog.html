@@ -1,0 +1,30 @@
+   <!-- ======= Counts Section ======= -->
+   <section id="blog" class="counts section-bg">
+    <div class="container">
+        <div class="section-title">
+            <h2>Materi Jurnalistik</h2>
+              <p>"Mengungkap Rahasia Di Balik Peradaban Media: Menelusuri Setiap Aspek Dunia Jurnalistik"</p>
+                </div>
+                  <div class="row row-cols-1 row-cols-md-3 g-4">
+                      {% for blog in blog %}
+                        {% if blog.status == 'Public' %}
+                          <a href="/{{blog.id_artikel}}/{{blog.judul}}" style="cursor:pointer; color:black;">
+                            <div class="col">
+                              <div class="card h-300" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
+                                <img src="{{ (url_for('static', filename='uploads/images/' + blog.image)) }}" class="card-img-top" alt="..." width="500" height="200">
+                                <div class="card-body">
+                              <h5 class="card-title">{{blog.judul}}</h5>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    {% else %}
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          </section><!-- End Counts Section -->
+
+
+
+   

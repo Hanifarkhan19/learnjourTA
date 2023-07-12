@@ -1,0 +1,42 @@
+<!-- partial:partials/_sidebar.html -->
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('dashboard')}}">
+          <i class="mdi mdi-view-dashboard menu-icon"></i>
+          <span class="menu-title">Dashboard</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('register')}}">
+          <i class="mdi mdi-account menu-icon"></i>
+          <span class="menu-title">Akun</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('artikel')}}">
+          <i class="mdi mdi-file-document-box menu-icon"></i>
+          <span class="menu-title">Artikel</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('testimoni')}}">
+          <i class="mdi mdi-comment-check menu-icon"></i>
+          <span class="menu-title">Testimoni</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('pesan')}}">
+          <i class="mdi mdi-message-reply menu-icon"></i>
+          <span class="menu-title">Pesan</span>
+        </a>
+      </li>
+      <li class="nav-item nav-category">pages</li>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout">
+          <i class="mdi mdi-logout menu-icon"></i>
+          <span class="menu-title">Logout</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
