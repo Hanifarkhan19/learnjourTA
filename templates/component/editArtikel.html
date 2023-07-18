@@ -5,6 +5,7 @@
     </div>
     <div class="mb-3">
         <label for="formFile" class="form-label">Image</label>
+        <div class="alert alert-warning">Mohon Upload Ulang Gambar</div>
         <input class="form-control" value="{{artikel.image}}" type="file" name="image" id="formFile">
         <img src="{{ (url_for('static', filename='uploads/images/' + artikel.image)) }}" width="10%" style="margin-top:10px;">
       </div>

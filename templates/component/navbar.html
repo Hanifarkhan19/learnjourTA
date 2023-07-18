@@ -12,6 +12,43 @@
           <li><a class="nav-link scrollto" href="#about">Tentang</a></li>
           <li><a class="nav-link scrollto" href="#blog">Materi</a></li>
           <li><a class="nav-link scrollto" href="#contact">Kontak</a></li>
+          {% set max_items = 3 %}
+          {% set total_items = blog|length %}
+          {% set remaining_items = total_items - max_items %}
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Kurikulum Pembelajaran
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+              {% for blog in blog[:max_items] %}
+                <li><a class="dropdown-item" href="/{{blog.id_artikel}}/{{blog.judul}}">Materi {{loop.index}}</a></li>
+              {% endfor %}
+              {% if remaining_items > 0 %}
+                <li><button class="dropdown-item selengkapnya-button">Selengkapnya</button></li>
+              {% endif %}
+              {% for blog in blog[max_items:] %}
+                <li class="additional-item" style="display: none;"><a class="dropdown-item" href="/{{blog.id_artikel}}/{{blog.judul}}">Materi {{loop.index + max_items}}</a></li>
+              {% endfor %}
+            </ul>
+          </li>
+          
+          {% if remaining_items > 0 %}
+          <script>
+            const selengkapnyaButton = document.querySelector('.selengkapnya-button');
+            const additionalItems = document.querySelectorAll('.additional-item');
+          
+            selengkapnyaButton.addEventListener('click', function() {
+              additionalItems.forEach(item => {
+                item.style.display = 'block';
+              });
+              selengkapnyaButton.style.display = 'none';
+            });
+          </script>
+          {% endif %}
+          
+
+          
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->

@@ -83,7 +83,7 @@ def register():
 def editArtikel(id_artikel):
     if 'islogin' in session:
         cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cur.execute("SELECT * FROM artikel where id_artikel = %s",(id_artikel,))
+        cur.execute("SELECT * FROM artikel WHERE id_artikel = %s",(id_artikel,))
         artikel = cur.fetchone()
         cur.close()
         flash("Berhasil, Artikel Telah Di Update")
@@ -108,7 +108,7 @@ def artikel():
 @app.route('/<string:id_artikel>/<string:judul>')
 def detail(id_artikel,judul):
     cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM artikel where id_artikel = %s",(id_artikel,))
+    cur.execute("SELECT * FROM artikel WHERE id_artikel = %s",(id_artikel,))
     result = cur.fetchone()
     cur.close()
     return render_template('user/detail.html',result=result) 

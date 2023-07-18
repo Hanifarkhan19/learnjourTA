@@ -160,6 +160,19 @@ h6 {
 /**
 * Desktop Navigation 
 */
+/* Pengaturan default */
+.dropdown-menu {
+  max-width: 100%;
+}
+
+/* Pengaturan untuk view dengan lebar kurang dari 768px */
+@media (max-width: 767px) {
+  .dropdown-menu {
+    max-width: 200px; /* Atur lebar yang sesuai */
+    position: static; /* Atur posisi yang sesuai */
+  }
+}
+
 .navbar {
   padding: 0;
 }
